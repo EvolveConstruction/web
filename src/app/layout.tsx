@@ -4,7 +4,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme/theme";
 
 export const metadata: Metadata = {
-  title: "Evolve Construction LTD",
+  title: "Evolve Construction Inc",
   description: "Plan. Manage. Build.",
 };
 
