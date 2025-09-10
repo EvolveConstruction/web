@@ -1,18 +1,13 @@
-import { Typography, Box } from '@mui/material';
-import { CSSProperties } from 'react';
-import LoadingVideo from '@/components/loadingVideo';
-
-import localFont from 'next/font/local';
+import { Box } from "@mui/material";
+import { CSSProperties } from "react";
+import LoadingVideo from "@/components/loadingVideo";
+import RandomMessage from "@/components/randomMessage";
+import { Message } from "@/types/message";
 
 const containerBoxStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-};
-
-type Message = {
-  big: string;
-  small: string;
 };
 
 const msgs: Message[] = [
@@ -38,23 +33,10 @@ const msgs: Message[] = [
   },
 ];
 
- const conceptFont = localFont({
-    src: '../../public/fonts/Concept.woff2',
-  });
-
 export default function Home() {
-  const msgsCount = msgs.length;
-  const msgNumber = Math.floor(msgsCount * Math.random());
-  const msg = msgs[msgNumber];
-
- 
-
   return (
     <Box sx={containerBoxStyle}>
-      <Typography variant="h2" className={conceptFont.className}>
-        {msg.big}
-      </Typography>
-      <Typography variant="h6">{msg.small}</Typography>
+      <RandomMessage messages={msgs} />
       <LoadingVideo />
     </Box>
   );
