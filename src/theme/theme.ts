@@ -1,12 +1,9 @@
 'use client';
 
 import { createTheme } from '@mui/material';
-import localFont from 'next/font/local';
 
-let baseTheme = createTheme();
-const conceptFont = localFont({
-  src: '../../public/fonts/Concept.woff2'
-})
+const baseTheme = createTheme();
+
 
 export default createTheme({
     typography: {
