@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
+import Footer from "@/components/footer";
 import theme from "../theme/theme";
 import "./globals.css";
+import FocusTrap from "@mui/material/Unstable_TrapFocus";
 
 export const metadata: Metadata = {
   title: "Evolve Construction Inc",
@@ -20,6 +22,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}> {children} </ThemeProvider>
         </AppRouterCacheProvider>
+        <Footer />
       </body>
     </html>
   );
