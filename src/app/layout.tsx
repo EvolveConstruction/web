@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import Footer from "@/components/footer";
+import Navigation from "@/components/navigation";
 import theme from "../theme/theme";
 import "./globals.css";
-import FocusTrap from "@mui/material/Unstable_TrapFocus";
 
 export const metadata: Metadata = {
   title: "Evolve Construction Inc",
@@ -19,9 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ height: "100vh" }}>
       <body style={{ height: "99vh" }}>
+        <Navigation />
+        <main className={"flex-1"}>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}> {children} </ThemeProvider>
         </AppRouterCacheProvider>
+        </main>
         <Footer />
       </body>
     </html>
