@@ -4,19 +4,19 @@ import { ArrowRight } from "lucide-react";
 
 const galleryImages = [
   {
-    url: "/images/homesGal1.png",
+    url: "/images/custom-homes/gal1.png",
     title: "Contemporary Stone & Stucco Design",
   },
   {
-    url: "/images/homesGal2.png",
+    url: "/images/custom-homes/gal2.png",
     title: "Master Bedroom Suite",
   },
   {
-    url: "/images/homesGal3.png",
+    url: "/images/custom-homes/gal3.png",
     title: "Modern Architectural Excellence",
   },
   {
-    url: "/images/homesGal4.png",
+    url: "/images/custom-homes/gal4.png",
     title: "Custom Deck & Outdoor Living",
   },
 ];
