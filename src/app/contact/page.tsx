@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Contact() {
-
   const MAX_FILE_SIZE_MB = 25;
   const MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1028 * 1028;
   const [fileMessage, setFileMessage] = useState("");
+  const API = "http://localhost:7071/api";
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -23,9 +23,9 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
-  const [fileInputKey, ] = useState(0);
+  const [fileInputKey] = useState(0);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validate that at least one project type is selected
@@ -34,7 +34,30 @@ export default function Contact() {
       return;
     }
 
-    setSubmitted(true);
+    // Convert Object to FormData
+    const data = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      data.append(key, String(value));
+    });
+    // Rewrite files correct ways
+    data.delete("files");
+    formData.files?.forEach((file) => data.append("files", file));
+
+    try {
+      const response = await fetch(API + "EmailNotification", {
+        method: "POST",
+        body: data,
+      });
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        alert("We ran into some errors on our end :(");
+        console.log(response);
+      }
+    } catch (e) {
+      alert("We ran into some errors on our end :(");
+      console.log(e);
+    }
   };
 
   const handleChange = (
@@ -61,30 +84,28 @@ export default function Contact() {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files ) {
+    if (e.target.files) {
       const filesArray = Array.from(e.target.files);
 
-      // check file size and concatenate file names
+      // calculate file size and concatenate file names
       let fileSize = 0;
       let fileNames = "";
       filesArray.forEach((file) => {
-        fileSize += file.size
+        fileSize += file.size;
         fileNames += file.name + ", ";
       });
-      fileNames = fileNames.slice(0, -2);               // remove trailing ", "
+      fileNames = fileNames.slice(0, -2); // remove trailing ", "
 
       if (fileSize < MAX_FILE_SIZE) {
-      setFormData({
-        ...formData,
-        files: filesArray,
-      });
+        setFormData({
+          ...formData,
+          files: filesArray,
+        });
 
-      setFileMessage(fileNames);
-
-    }
-    else {
+        setFileMessage(fileNames);
+      } else {
         setFileMessage("All files must be less than 25 Mb");
-    }
+      }
     }
   };
 
@@ -172,7 +193,8 @@ export default function Contact() {
               <span className="text-[#C0C0C0]">Project</span>
             </h2>
             <p className="text-[#C0C0C0]/80">
-              Fill out the form below and we&apos;ll get back to you within 24 hours
+              Fill out the form below and we&apos;ll get back to you within 24
+              hours
             </p>
           </div>
 
@@ -380,7 +402,7 @@ export default function Contact() {
                       />
                       {(formData.files || true) && (
                         <p className="text-sm text-[#B8935E] mt-2">
-                            {fileMessage}
+                          {fileMessage}
                         </p>
                       )}
                     </div>
