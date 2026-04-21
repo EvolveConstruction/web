@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { useEffect } from "react";
 
 const planDesignHero =
   "https://images.unsplash.com/photo-1721244654392-9c912a6eb236?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmFsJTIwYmx1ZXByaW50cyUyMGRlc2lnbiUyMGx1eHVyeXxlbnwxfHx8fDE3NzQyMjUyNDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral";
@@ -8,6 +9,11 @@ const customHomesHero = "/images/homes.png"
 const tileStoneHero = "/images/tiles.png"
 
 export default function Home() {
+
+  useEffect(() => {
+    //fetch()
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Custom Homes Section */}
