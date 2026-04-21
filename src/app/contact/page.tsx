@@ -7,7 +7,7 @@ export default function Contact() {
   const MAX_FILE_SIZE_MB = 25;
   const MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1028 * 1028;
   const [fileMessage, setFileMessage] = useState("");
-  const API = "http://localhost:7071/api";
+  const API = process.env.NEXT_PUBLIC_BACKEND_API;
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -44,7 +44,7 @@ export default function Contact() {
     formData.files?.forEach((file) => data.append("files", file));
 
     try {
-      const response = await fetch(API + "EmailNotification", {
+      const response = await fetch(`${API}EmailNotification`, {
         method: "POST",
         body: data,
       });
