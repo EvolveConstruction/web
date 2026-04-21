@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Contact() {
@@ -21,6 +21,12 @@ export default function Contact() {
     hearAboutUs: "",
     files: null as File[] | null,
   });
+
+  // hit warmup endpoint
+  useEffect(() => {
+    const API = `${process.env.NEXT_PUBLIC_BACKEND_API}warmup`;
+    if (API) fetch(API).catch(() => {});
+  }, []);
 
   const [submitted, setSubmitted] = useState(false);
   const [fileInputKey] = useState(0);
