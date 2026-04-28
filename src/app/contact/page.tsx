@@ -8,6 +8,7 @@ export default function Contact() {
   const MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1028 * 1028;
   const [fileMessage, setFileMessage] = useState("");
   const API = process.env.NEXT_PUBLIC_BACKEND_API;
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -33,6 +34,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
     // Validate that at least one project type is selected
     if (formData.projectTypes.length === 0) {
@@ -63,6 +65,8 @@ export default function Contact() {
     } catch (e) {
       alert("We ran into some errors on our end :(");
       console.log(e);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -432,9 +436,14 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-[#B8935E] text-[#0a0a0a] py-4 text-lg font-semibold hover:bg-[#C0C0C0] transition-colors"
+                disabled={loading}
+                className="w-full bg-[#B8935E] text-[#0a0a0a] py-4 text-lg font-semibold hover:bg-[#C0C0C0] transition-colors flex justify-center"
               >
-                Send Message
+                {loading ? (
+                    <div className="w-6 h-6 border-4 border-[#0a0a0a] border-t-[#B8935E] rounded-full animate-spin"></div>
+                ) : (
+                  "Send Message"
+                )}
               </button>
             </form>
           )}
