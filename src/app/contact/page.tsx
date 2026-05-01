@@ -7,7 +7,6 @@ export default function Contact() {
   const MAX_FILE_SIZE_MB = 25;
   const MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1028 * 1028;
   const [fileMessage, setFileMessage] = useState("");
-  const API = process.env.NEXT_PUBLIC_BACKEND_API;
   const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -52,18 +51,18 @@ export default function Contact() {
     formData.files?.forEach((file) => data.append("files", file));
 
     try {
-      const response = await fetch(`${API}EmailNotification`, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         body: data,
       });
       if (response.ok) {
         setSubmitted(true);
       } else {
-        alert("We ran into some errors on our end :(");
+        alert("We ran into some errors on our end :(1");
         console.log(response);
       }
     } catch (e) {
-      alert("We ran into some errors on our end :(");
+      alert("We ran into some errors on our end :(2");
       console.log(e);
     } finally {
       setLoading(false);
