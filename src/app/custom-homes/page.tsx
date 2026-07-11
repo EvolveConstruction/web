@@ -16,8 +16,56 @@ const galleryImages = [
     title: "Modern Architectural Excellence",
   },
   {
-    url: "/images/custom-homes/gal4.png",
+    url: "/images/custom-homes/gal4.jpg",
+    title: "Modern Architectural Excellence",
+  },
+  {
+    url: "/images/custom-homes/gal5.png",
     title: "Custom Deck & Outdoor Living",
+  },
+  {
+    url: "/images/custom-homes/gal6.jpeg",
+    title: "Custom Deck & Outdoor Living",
+  },
+  {
+    url: "/images/custom-homes/gal7.jpg",
+    title: "Custom Exterior",
+  },
+  {
+    url: "/images/custom-homes/gal8.jpg",
+    title: "Custom Exterior",
+  },
+  {
+    url: "/images/custom-homes/gal9.jpg",
+    title: "Siding Replacement",
+  },
+  {
+    url: "/images/custom-homes/gal10.jpg",
+    title: "Framing Experts",
+  },
+  {
+    url: "/images/custom-homes/gal11.jpg",
+    title: "New Family Home",
+  },
+  {
+    url: "/images/custom-homes/gal12.jpg",
+    title: "Outdoor Deck Addition",
+  },
+  {
+    url: "/images/custom-homes/gal13.jpg",
+    title: "Modern Kitchen",
+  },
+  {
+    url: "/images/custom-homes/gal14.jpg",
+    title: "Modern Living Room",
+  },
+  {
+    url: "/images/custom-homes/gal15.jpg",
+    title: "Kids Bedroom",
+  },
+  {
+    url: "/images/custom-homes/gal16.jpg",
+    title: "Entrance",
   },
 ];
 
@@ -28,7 +76,7 @@ export default function CustomHomes() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-[center_26%] scale-110"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
@@ -53,14 +101,13 @@ export default function CustomHomes() {
             Building Your Dream Home
           </h2>
           <p className="text-lg text-[#C0C0C0] leading-relaxed mb-8">
-            Our custom homes division specializes in creating bespoke residences that reflect 
-            your unique lifestyle and aspirations. From contemporary masterpieces to timeless 
-            classical designs, every project is executed with meticulous attention to detail 
-            and the finest materials available.
+            Our custom homes division specializes in creating bespoke residences
+            that reflect your unique lifestyle and aspirations. From
+            contemporary masterpieces to timeless classical designs, every
+            project is executed with meticulous attention to detail and the
+            finest materials available.
           </p>
-          <p className="text-[#B8935E] mb-8">
-            Family Owned and Operated
-          </p>
+          <p className="text-[#B8935E] mb-8">Family Owned and Operated</p>
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="border border-[#B8935E]/20 p-6 bg-[#1a1a1a]">
               <h3 className="text-xl mb-3 text-[#B8935E]">Design Excellence</h3>
@@ -75,7 +122,9 @@ export default function CustomHomes() {
               </p>
             </div>
             <div className="border border-[#B8935E]/20 p-6 bg-[#1a1a1a]">
-              <h3 className="text-xl mb-3 text-[#B8935E]">Expert Craftsmanship</h3>
+              <h3 className="text-xl mb-3 text-[#B8935E]">
+                Expert Craftsmanship
+              </h3>
               <p className="text-[#C0C0C0]">
                 Decades of experience in luxury home construction
               </p>
@@ -88,11 +137,12 @@ export default function CustomHomes() {
       <section className="py-16 px-4 bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl mb-12 text-center">
-            <span className="text-[#C0C0C0]">Our</span> <span className="text-[#B8935E]">Portfolio</span>
+            <span className="text-[#C0C0C0]">Our</span>{" "}
+            <span className="text-[#B8935E]">Portfolio</span>
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {galleryImages.map((image, index) => (
-              <div 
+              <div
                 key={index}
                 className="group relative overflow-hidden aspect-[4/3] border border-[#B8935E]/20"
               >
@@ -121,7 +171,8 @@ export default function CustomHomes() {
             Ready to Build Your Dream Home?
           </h2>
           <p className="text-xl text-[#C0C0C0] mb-4">
-            Let&apos;s discuss your vision and create something extraordinary together.
+            Let&apos;s discuss your vision and create something extraordinary
+            together.
           </p>
           <p className="text-lg text-[#B8935E] mb-8">
             Serving Southern Manitoba
