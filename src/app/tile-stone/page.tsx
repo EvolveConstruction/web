@@ -48,7 +48,7 @@ const galleryImages = [
     title: "Elegant Bathroom Tile",
   },
   {
-    url: "/images/tiles-stone/gal12.jpeg",
+    url: "/images/tiles-stone/gal12.jpg",
     title: "Full Tile Shower",
   },
 ];
